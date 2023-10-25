@@ -19,6 +19,11 @@ This repository contains slides and code samples for a live presentation. Detail
 * [Tutorial: Update interfaces with default interface methods in C# 8.0](https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/default-interface-methods-versions)
 * [Tutorial: Mix functionality in when creating classes using interfaces with default interface methods](https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/mixins-with-default-interface-methods)  
 
+**Presentation Recordings:**  
+(Just the C# 8 parts)
+* [Tulsa .NET User Group](http://usergroup.tv/videos/whats-new-in-c-8-interfaces-and-how-to-use-them-effectively) - Recorded Jul 23, 2020  
+* [Southeast Valley .NET User Group & North West Valley .NET User Group](https://www.youtube.com/watch?v=on-MIseN6gU) - Recorded Jun 24, 2020  
+
 **Additional Topics**  
 * [IEnumerable, ISaveable, IDontGetIt: Understanding C# Interfaces](http://www.jeremybytes.com/Demos.aspx#INT)  
 * [Explicit Interface Implementation](https://jeremybytes.blogspot.com/2012/03/explicit-interface-implementation.html)  
