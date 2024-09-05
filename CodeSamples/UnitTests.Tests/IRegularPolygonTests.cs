@@ -5,8 +5,11 @@ using NSubstitute;
 using FakeItEasy;
 using Rocks;
 
+[assembly: Rock(typeof(IRegularPolygon), BuildType.Create)]
+
 namespace UnitTests.Tests 
 {
+
     public class FakePolygonWithDefault : IRegularPolygon
     {
         public int NumberOfSides { get { return 4; } }
@@ -23,7 +26,7 @@ namespace UnitTests.Tests
 
             double result = fake.GetPerimeter();
 
-            Assert.AreEqual(20.0, result);
+            Assert.That(result, Is.EqualTo(20.0));
         }
 
         [Test]
@@ -38,20 +41,21 @@ namespace UnitTests.Tests
 
             double result = mock.Object.GetPerimeter();
 
-            Assert.AreEqual(15.0, result);
+            Assert.That(result, Is.EqualTo(15.0));
         }
 
         [Test]
         public void Rocks_CheckDefaultImplementation()
         {
-            var mock = Rock.Create<IRegularPolygon>();
-            mock.Properties().Getters().NumberOfSides().Returns(3);
-            mock.Properties().Getters().SideLength().Returns(5);
+            var expectations = new IRegularPolygonCreateExpectations();
+            expectations.Properties.Getters.NumberOfSides().ReturnValue(3);
+            expectations.Properties.Getters.SideLength().ReturnValue(5);
 
-            var chunk = mock.Instance();
-            double result = chunk.GetPerimeter();
+            var mock = expectations.Instance();
+            var result = mock.GetPerimeter();
+            expectations.Verify();
 
-            Assert.AreEqual(15.0, result);
+            Assert.That(result, Is.EqualTo(15.0));
         }
 
         [Test]
@@ -63,7 +67,7 @@ namespace UnitTests.Tests
 
             double result = mock.GetPerimeter();
 
-            Assert.AreEqual(15.0, result);
+            Assert.That(result, Is.EqualTo(15.0));
         }
 
         [Test]
@@ -75,7 +79,7 @@ namespace UnitTests.Tests
 
             double result = mock.GetPerimeter();
 
-            Assert.AreEqual(15.0, result);
+            Assert.That(result, Is.EqualTo(15.0));
         }
     }
 }
