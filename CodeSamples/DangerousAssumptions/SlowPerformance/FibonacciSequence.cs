@@ -12,6 +12,7 @@ public class FibonacciSequence : IEnumerable<int>
         bool notOverflowed = true;
         while (notOverflowed)
         {
+            Thread.Sleep(100);
             value = (value.next, value.current + value.next);
             if (value.next < 0)
             {
